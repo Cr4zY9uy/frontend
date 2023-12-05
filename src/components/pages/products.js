@@ -97,7 +97,7 @@ function Products() {
             // No filters, load all products
             loadProduct();
         }
-        console.log(totalProducts)
+        // console.log(totalProducts)
     }, [page, cateFind, startPrice, endPrice])
     return (
         <div className='products_filter '>
@@ -136,11 +136,13 @@ function Products() {
                         })) : <p>Nothing to show</p>
                     }
                 </div>
-                {products && products.length !== undefined ? (<Pagination
+                {products && products.length !== undefined ? (<>
+                  <Pagination
                     total={totalProducts}
+                    pageSize={8}
                     current={page}
                     onChange={(page) => setPage(page)}
-                />) : <div></div>}
+                /></>) : <div></div>}
             </div>
             <ScrollToTop smooth color="#000" />
         </div>
